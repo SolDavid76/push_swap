@@ -6,16 +6,38 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:54:47 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/07 06:02:20 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/07 08:04:22 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	ft_tab_check_content(char **tab)
+{
+	int	i;
+	int	j;
+
+	if (tab[0][0] == '\0')
+		return (write(1, "ERROR\n", 7), 1);
+	i = 0;
+	while (tab[i])
+	{
+		j = 0;
+		while (tab[i][j])
+		{
+			if ((tab[i][j] < '0' || '9' < tab[i][j]) && tab[i][j] != '+' && tab[i][j] != '-' && tab[i][j] != ' ')
+				return (write(1, "ERROR\n", 7), 1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
+}
+
 int	ft_lst_check_content(t_list *lst)
 {
 	t_list	*tmp;
-	
+
 	while (lst)
 	{
 		tmp = lst->next;
@@ -39,7 +61,7 @@ t_list	*listing(char **tab)
 
 	i = 0;
 	res = ft_lstnew(ft_atol(tab[i++]));
-	while(tab[i])
+	while (tab[i])
 		ft_lstadd_back(&res, ft_lstnew(ft_atol(tab[i++])));
 	if (ft_lst_check_content(res))
 		return (ft_lst_free(res), free_tab(tab), NULL);
@@ -51,22 +73,9 @@ t_list	*parsing(char **av)
 	char	**tab;
 	char	*str;
 	int		i;
-	int		j;
 
-	i = 0;
-	if (av[0][0] == '\0')
-		return (write(1, "ERROR\n", 7), NULL);
-	while (av[i])
-	{
-		j = 0;
-		while(av[i][j])
-		{
-			if ((av[i][j] < '0' || '9' < av[i][j]) && (av[i][j] != ' '))
-				return (write(1, "ERROR\n", 7), NULL);
-			j++;
-		}
-		i++;
-	}
+	if (ft_tab_check_content(av))
+		return (NULL);
 	i = 0;
 	str = NULL;
 	while (av[i])

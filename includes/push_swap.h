@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:42:23 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/07 03:30:17 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/07 07:35:16 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ char		**ft_split(char *str, char c);
 
 /* parsing.c */
 t_list		*parsing(char **av);
+t_list		*listing(char **tab);
 int			ft_lst_check_content(t_list *lst);
 
 /* lst.c */
