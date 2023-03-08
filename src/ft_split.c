@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:43:36 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/07 07:39:51 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/08 11:38:18 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,11 +68,11 @@ char	**ft_split(char *str, char c)
 	int		i;
 	int		j;
 
-	if (!str)
-		return (NULL);
+	if (str[0] == ' ' && str[1] == '\0')
+		return (write(1, "ERROR\n", 7), free(str), exit(1), NULL);
 	res = malloc(sizeof(char *) * (nbr_word(str, c) + 1));
 	if (!res)
-		return (write(1, "NOT ENOUGH MEMORY\n", 19), free(str), NULL);
+		return (write(1, "NOT ENOUGH MEMORY\n", 19), free(str), exit(1), NULL);
 	i = 0;
 	j = 0;
 	while (str[i])

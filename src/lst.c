@@ -6,13 +6,13 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:49:10 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/07 03:29:56 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/08 11:34:50 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_list	*ft_lstnew(long int content)
+t_list	*ft_lstnew(int content)
 {
 	t_list	*res;
 

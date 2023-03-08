@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:54:47 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/07 08:04:22 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/08 11:38:08 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,16 +17,16 @@ int	ft_tab_check_content(char **tab)
 	int	i;
 	int	j;
 
-	if (tab[0][0] == '\0')
-		return (write(1, "ERROR\n", 7), 1);
 	i = 0;
 	while (tab[i])
 	{
 		j = 0;
+		if (tab[i][j] == '\0')
+			return (write(1, "ERROR\n", 7), exit(1), 1);
 		while (tab[i][j])
 		{
 			if ((tab[i][j] < '0' || '9' < tab[i][j]) && tab[i][j] != '+' && tab[i][j] != '-' && tab[i][j] != ' ')
-				return (write(1, "ERROR\n", 7), 1);
+				return (write(1, "ERROR\n", 7), exit(1), 1);
 			j++;
 		}
 		i++;
@@ -41,12 +41,10 @@ int	ft_lst_check_content(t_list *lst)
 	while (lst)
 	{
 		tmp = lst->next;
-		if (lst->content < -2147483648 || 2147483647 < lst->content)
-			return (write(1, "ERROR\n", 7), 1);
 		while (tmp)
 		{
 			if (tmp->content == lst->content)
-				return (write(1, "ERROR\n", 7), 1);
+				return (write(1, "ERROR\n", 7), exit(1), 1);
 			tmp = tmp->next;
 		}
 		lst = lst->next;
@@ -74,8 +72,7 @@ t_list	*parsing(char **av)
 	char	*str;
 	int		i;
 
-	if (ft_tab_check_content(av))
-		return (NULL);
+	ft_tab_check_content(av);
 	i = 0;
 	str = NULL;
 	while (av[i])
