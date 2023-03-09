@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:41:28 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/08 17:44:06 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/09 14:11:55 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ int	main(int ac, char **av)
 	lst = parsing(av + 1);
 	if (!lst)
 		return (1);
+	sa(lst);
 	tmp = lst;
 	while (lst)
 	{
@@ -29,5 +30,4 @@ int	main(int ac, char **av)
 		lst = lst->next;
 	}
 	ft_lst_free(tmp);
-	
 }

@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:42:23 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/09 12:23:29 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/09 14:10:46 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,6 +44,6 @@ void		ft_lstadd_back(t_list **lst, t_list *new);
 void		ft_lst_free(t_list	*lst);
 
 /* move.c */
-t_list		*sa(t_list *a);
+void		sa(t_list *a);
 
 #endif
