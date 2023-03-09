@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:43:36 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/08 11:38:18 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/09 12:44:34 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,32 +31,32 @@ int	nbr_word(char *str, char c)
 	len = 0;
 	while (str[i])
 	{
-		if (i != 0 && str[i] == c && str[i - 1] != c)
+		if (str[i] == c && i != 0 && str[i - 1] != c)
 			len++;
 		i++;
 	}
 	if (i != 0 && str[i - 1] != c)
-	len++;
+		len++;
 	return (len);
 }
 
-char	*ft_split_aux(char *str, char c)
+char	*ft_strdup_split(char *str, char c)
 {
 	char	*res;
 	int		i;
 	int		j;
 
 	i = 0;
+	j = 0;
 	while (str[i] && str[i] != c)
 		i++;
-	res = malloc(sizeof(char) * (i + 1));
+	res = ft_calloc(sizeof(char) * (i + 1));
 	if (!res)
 		return (NULL);
 	i = 0;
-	while (str[i] && str[i] == c)
+	while (str[i] == c && str[i])
 		i++;
-	j = 0;
-	while (str[i] && str[i] != c)
+	while (str[i] != c && str[i])
 		res[j++] = str[i++];
 	res[j] = '\0';
 	return (res);
@@ -68,23 +68,23 @@ char	**ft_split(char *str, char c)
 	int		i;
 	int		j;
 
-	if (str[0] == ' ' && str[1] == '\0')
-		return (write(1, "ERROR\n", 7), free(str), exit(1), NULL);
 	res = malloc(sizeof(char *) * (nbr_word(str, c) + 1));
 	if (!res)
-		return (write(1, "NOT ENOUGH MEMORY\n", 19), free(str), exit(1), NULL);
+		return (write(1, "NOT ENOUGH MEMORY\n", 18), free(str), NULL);
 	i = 0;
 	j = 0;
 	while (str[i])
 	{
-		while (str[i] == c)
+		while (str[i] && str[i] == c)
 			i++;
-		res[j] = ft_split_aux(str + i, c);
+		res[j] = ft_strdup_split(str + i, c);
 		if (!res[j++])
-			return (free_tab(res), free(str), NULL);
+			return (write(1, "NOT ENOUGH MEMORY\n", 18), free_tab(res), free(str), NULL);
 		while (str[i] && str[i] != c)
 			i++;
 	}
+	if (nbr_word(str, c) != j && res[nbr_word(str, c)][0] == '\0')
+		free(res[nbr_word(str, c)]);
 	res[nbr_word(str, c)] = NULL;
 	return (free(str), res);
 }

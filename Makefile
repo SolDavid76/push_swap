@@ -1,6 +1,6 @@
 SRCS_DIR	= src/
 
-SRC			= ft_split.c lst.c main.c parsing.c utils.c
+SRC			= ft_split.c lst.c main.c parsing.c utils.c move.c
 
 SRCS		= $(addprefix $(SRCS_DIR), $(SRC))
 

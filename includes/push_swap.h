@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:42:23 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/08 11:35:00 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/09 12:23:29 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,22 +24,26 @@ typedef struct s_list
 }					t_list;
 
 /* utils.c */
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *s1, char *s2);
-int		ft_atol(char *str);
-void	free_tab(char **tab);
-char	**ft_split(char *str, char c);
+int			ft_strlen(char *str);
+char		*ft_calloc(int size);
+char		*ft_strjoin(char *s1, char *s2);
+long int	ft_atol(char *str);
+void		free_tab(char **tab);
+char		**ft_split(char *str, char c);
 
 /* parsing.c */
-t_list	*parsing(char **av);
-t_list	*listing(char **tab);
-int		ft_lst_check_content(t_list *lst);
+t_list		*parsing(char **av);
+t_list		*listing(char **tab);
+int			ft_lst_check_content(t_list *lst);
 
 /* lst.c */
-t_list	*ft_lstnew(int content);
-int		ft_lstsize(t_list *lst);
-t_list	*ft_lstlast(t_list *lst);
-void	ft_lstadd_back(t_list **lst, t_list *new);
-void	ft_lst_free(t_list	*lst);
+t_list		*ft_lstnew(long int content);
+int			ft_lstsize(t_list *lst);
+t_list		*ft_lstlast(t_list *lst);
+void		ft_lstadd_back(t_list **lst, t_list *new);
+void		ft_lst_free(t_list	*lst);
+
+/* move.c */
+t_list		*sa(t_list *a);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:57:00 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/08 11:26:37 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/09 12:45:49 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,20 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+char	*ft_calloc(int size)
+{
+	char	*res;
+	int		i;
+
+	res = malloc(sizeof(char) * size);
+	if (!res)
+		return (NULL);
+	i = 0;
+	while (i < size)
+		res[i++] = '\0';
+	return (res);
+}
+
 char	*ft_strjoin(char *s1, char *s2)
 {
 	char	*res;
@@ -30,7 +44,7 @@ char	*ft_strjoin(char *s1, char *s2)
 
 	res = malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 2));
 	if (!res)
-		return (write(1, "NOT ENOUGH MEMORY\n", 19), free(s1), exit(1), NULL);
+		return (write(1, "NOT ENOUGH MEMORY\n", 18), free(s1), exit(1), NULL);
 	i = 0;
 	j = 0;
 	while (s1 && s1[i])
@@ -46,7 +60,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	return (res);
 }
 
-int	ft_atol(char *str)
+long int	ft_atol(char *str)
 {
 	long int	res;
 	int			sign;
@@ -56,7 +70,7 @@ int	ft_atol(char *str)
 	res = 0;
 	sign = 1;
 	if (!str)
-		exit(write(1, "ERROR\n", 7));
+		exit(write(2, "Error\n", 6));
 	while (str[i] == ' ' || (9 <= str[i] && str[i] <= 13))
 		i++;
 	while (str[i] == '-' || str[i] == '+')
@@ -67,8 +81,5 @@ int	ft_atol(char *str)
 	}
 	while ('0' <= str[i] && str[i] <= '9')
 		res = (res * 10) + (str[i++] - '0');
-	if (INT_MIN < res || res < INT_MAX)
-		return (sign * res);
-	else
-		return (write(1, "ERROR\n", 7), free(str), exit(1), 1);
+	return (sign * res);
 }
