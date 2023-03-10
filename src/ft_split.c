@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:43:36 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/09 12:44:34 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/10 19:09:18 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -79,7 +79,7 @@ char	**ft_split(char *str, char c)
 			i++;
 		res[j] = ft_strdup_split(str + i, c);
 		if (!res[j++])
-			return (write(1, "NOT ENOUGH MEMORY\n", 18), free_tab(res), free(str), NULL);
+			return (free_tab(res), free(str), NULL);
 		while (str[i] && str[i] != c)
 			i++;
 	}

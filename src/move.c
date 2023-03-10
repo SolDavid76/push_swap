@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:35:08 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/10 13:14:47 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/10 19:11:35 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,10 +28,10 @@ void	swap_ab(t_list **start, char c)
 		write(1, "sb\n", 3);
 }
 
-void	swap(t_list **a, t_list **b)
+void	swap(t_list **start_a, t_list **start_b)
 {
-	swap_ab(a, '\0');
-	swap_ab(b, '\0');
+	swap_ab(start_a, '\0');
+	swap_ab(start_b, '\0');
 	write(1, "ss\n", 3);
 }
 
@@ -58,9 +58,62 @@ void	push_ab(t_list **start_a, t_list **start_b, char c)
 	}
 }
 
-void	rotate_ab(t_list **start_a, t_list **start_b, char c)
+void	rotate(t_list **start_a, t_list **start_b, char c)
 {
-	t_list	lst;
+	t_list	*lst;
 
-	
+	if (c == 'a' || c == '\0')
+	{
+		lst = *start_a;
+		*start_a = lst->next;
+		ft_lstlast(lst)->next = lst;
+		lst->next = NULL;
+		if (c == 'a')
+			write(1, "ra\n", 3);
+	}
+	if (c == 'b' || c == '\0')
+	{
+		lst = *start_b;
+		*start_b = lst->next;
+		ft_lstlast(lst)->next = lst;
+		lst->next = NULL;
+		if (c == 'b')
+			write(1, "rb\n", 3);
+	}
+	if (c == '\0')
+		write(1, "rr\n", 3);
+}
+
+/* Function has more than 25 lines */
+void	rrotate(t_list **start_a, t_list **start_b, char c)
+{
+	t_list	*last;
+	t_list	*lst;
+
+	if (c == 'a' || c == '\0')
+	{
+		lst = *start_a;
+		last = ft_lstlast(lst);
+		while (lst->next != last)
+			lst = lst->next;
+		lst->next = NULL;
+		last->next = *start_a;
+		*start_a = last;
+		if (c == 'a')
+			write(1, "rra\n", 4);
+	}
+	if (c == 'b' || c == '\0')
+	{
+		lst = *start_b;
+		last = ft_lstlast(lst);
+		while (lst->next != last)
+			lst = lst->next;
+		lst->next = NULL;
+		last->next = *start_b;
+		*start_b = last;
+		if (c == 'b')
+			write(1, "rra\n", 4);
+	}
+	if (c == '\0')
+		write(1, "rrr\n", 4);
 }

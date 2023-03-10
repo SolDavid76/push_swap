@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:42:23 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/10 12:56:06 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/10 19:08:59 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,5 +47,7 @@ void		ft_lst_free(t_list	*lst);
 void		swap_ab(t_list **start, char c);
 void		swap(t_list **a, t_list **b);
 void		push_ab(t_list **start_a, t_list **start_b, char c);
+void		rotate(t_list **start_a, t_list **start_b, char c);
+void		rrotate(t_list **start_a, t_list **start_b, char c);
 
 #endif
