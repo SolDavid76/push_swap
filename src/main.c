@@ -6,28 +6,40 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:41:28 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/09 14:11:55 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/10 12:56:56 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+void	ft_lst_print(t_list *lst, char c)
+{
+	printf("%c = ", c);
+	while (lst)
+	{
+		printf("%li, ", lst->content);
+		lst = lst->next;
+	}
+	printf("\n");
+}
+
 int	main(int ac, char **av)
 {
-	t_list	*lst;
-	t_list	*tmp;
+	t_list	*lst_a;
+	t_list	*lst_b;
 
 	if (ac == 1)
 		return (1);
-	lst = parsing(av + 1);
-	if (!lst)
+	lst_a = parsing(av + 1);
+	lst_b = NULL;
+	if (!lst_a)
 		return (1);
-	sa(lst);
-	tmp = lst;
-	while (lst)
-	{
-		dprintf(1, "%li\n", lst->content);
-		lst = lst->next;
-	}
-	ft_lst_free(tmp);
+	push_ab(&lst_a, &lst_b, 'b');
+	push_ab(&lst_a, &lst_b, 'b');
+	push_ab(&lst_a, &lst_b, 'b');
+	swap_ab(&lst_b, 'b');
+	ft_lst_print(lst_a, 'a');
+	ft_lst_print(lst_b, 'b');
+	ft_lst_free(lst_a);
+	ft_lst_free(lst_b);
 }
