@@ -1,4 +1,4 @@
-SRCS_DIR	= src/
+SRCS_DIR	= srcs/
 
 SRC			= ft_split.c lst.c main.c parsing.c utils.c move.c
 
