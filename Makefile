@@ -1,10 +1,10 @@
 SRCS_DIR	= srcs/
 
-SRC			= ft_split.c lst.c main.c parsing.c utils.c move.c
+SRC			= ft_split.c lst.c lst2.c main.c parsing.c utils.c move.c sorting.c pre_sorting.c
 
 SRCS		= $(addprefix $(SRCS_DIR), $(SRC))
 
-OBJS_DIR	= obj/
+OBJS_DIR	= objs/
 
 OBJ			= ${SRC:.c=.o}
 

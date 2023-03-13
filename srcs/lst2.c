@@ -1,24 +1,64 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   test.c                                             :+:      :+:    :+:   */
+/*   lst2.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:09:59 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/11 11:08:28 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/13 16:04:24 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	is_sorted(t_list *lst)
+int	ft_lst_is_sorted(t_list *lst)
 {
 	while (lst && lst->next)
 	{
-		if (lst->content < lst->next->content)
-			return (1);
+		if (lst->content > lst->next->content)
+			return (0);
 		lst = lst->next;
 	}
-	return (0);
+	return (1);
+}
+
+t_list	*ft_lst_max(t_list *lst)
+{
+	t_list	*res;
+
+	res = lst;
+	while (lst)
+	{
+		if (res->content < lst->content)
+			res = lst;
+		lst = lst->next;
+	}
+	return (res);
+}
+
+t_list	*ft_lst_min(t_list *lst)
+{
+	t_list	*res;
+
+	res = lst;
+	while (lst)
+	{
+		if (res->content > lst->content)
+			res = lst;
+		lst = lst->next;
+	}
+	return (res);
+}
+
+t_list	*ft_lst_median(t_list *lst)
+{
+	int	median;
+	int	i;
+
+	i = 0;
+	median = ft_lstsize(lst) / 2;
+	while (i++ < median)
+		lst = lst->next;
+	return (lst);
 }
