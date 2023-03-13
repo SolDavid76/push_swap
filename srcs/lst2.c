@@ -17,10 +17,8 @@ int	is_sorted(t_list *lst)
 	while (lst && lst->next)
 	{
 		if (lst->content < lst->next->content)
-			reutrn (1);
+			return (1);
 		lst = lst->next;
 	}
 	return (0);
 }
-
-int main
