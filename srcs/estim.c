@@ -1,22 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sorting.c                                          :+:      :+:    :+:   */
+/*   estim.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 12:05:16 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/14 17:31:58 by djanusz          ###   ########.fr       */
+/*   Created: 2023/03/14 17:18:37 by djanusz           #+#    #+#             */
+/*   Updated: 2023/03/15 12:08:34 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	ft_sorting(t_list **start_a, t_list **start_b)
-{
-	t_list	*a;
+// int	estim_rotate(t_list *lst, t_list *elem)
+// {
+// 	return (ft_lst_index(lst, elem));
+// }
 
-	a = *start_a;
-	if (ft_lst_is_sorted(a) || short_sort(start_a, start_b))
-		return ;
+// int	estim_rrotate(t_list *lst, t_list *elem)
+// {
+// 	return (ft_lstsize(lst) - ft_lst_index(lst, elem));
+// }
+
+int	estimate_place(t_list *lst_a, t_list *lst_b, t_list *elem)
+{
+	int	i;
+
+	i = 0;
+	if (elem->content > lst_a->content)
+}
+
+int	estimate(t_list *lst_a, t_list *lst_b, t_list *elem)
+{
 }

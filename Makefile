@@ -1,6 +1,6 @@
 SRCS_DIR	= srcs/
 
-SRC			= ft_split.c lst.c lst2.c main.c parsing.c utils.c move.c sorting.c pre_sorting.c
+SRC			= estim.c ft_split.c lst.c lst_aux.c main.c parsing.c utils.c move.c move_aux.c sorting.c pre_sorting.c 
 
 SRCS		= $(addprefix $(SRCS_DIR), $(SRC))
 
@@ -34,6 +34,7 @@ clean:
 
 fclean:		clean
 			rm -f ${NAME}
+			rm -f a.out
 
 re:			fclean all
 

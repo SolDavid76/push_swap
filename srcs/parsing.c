@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:54:47 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/09 11:11:03 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/14 17:51:31 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ int	ft_tab_check_content(char **tab)
 		{
 			if ((tab[i][j] < '0' || '9' < tab[i][j]) &&
 			tab[i][j] != '+' && tab[i][j] != '-')
+				return (write(2, "Error\n", 6), free_tab(tab), exit(1), 1);
+			if ((tab[i][j] == '-' || tab[i][j] == '+')
+			&& (tab[i][j + 1] < '0' || '9' < tab[i][j + 1]))
 				return (write(2, "Error\n", 6), free_tab(tab), exit(1), 1);
 			j++;
 		}
@@ -78,12 +81,18 @@ t_list	*parsing(char **av)
 	int		i;
 
 	i = 0;
+	while (av[i])
+	{
+		if (ft_strlen(av[i++]) > 11)
+			return (write(2, "Error\n", 6), exit(1), NULL);
+	}
+	i = 0;
 	str = NULL;
 	while (av[i])
 		str = ft_strjoin(str, av[i++]);
 	tab = ft_split(str, ' ');
 	if (!tab)
-		return (write(2, "Error\n", 6), NULL);
+		return (write(2, "Error\n", 6), exit(1), NULL);
 	ft_tab_check_content(tab);
 	return (listing(tab));
 }

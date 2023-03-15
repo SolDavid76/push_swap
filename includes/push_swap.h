@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:42:23 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/13 17:21:03 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/14 17:36:01 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,16 +47,25 @@ int			ft_lst_is_sorted(t_list *lst);
 t_list		*ft_lst_max(t_list *lst);
 t_list		*ft_lst_min(t_list *lst);
 t_list		*ft_lst_median(t_list *lst);
+int			ft_lst_index(t_list *lst, t_list *elem);
 
 /* move.c */
-t_list		*swap_ab(t_list *lst, unsigned char c);
+void		swap_ab(t_list **start, char c);
 void		swap(t_list **start_a, t_list **start_b);
-void		push_ab(t_list **start_a, t_list **start_b, unsigned char c);
-void		rotate(t_list **start_a, t_list **start_b, unsigned char c);
-void		rrotate(t_list **start_a, t_list **start_b, unsigned char c);
+void		push(t_list **start_src, t_list **start_dst, char c);
+void		rotate_ab(t_list **start, char c);
+void		rotate(t_list **start_a, t_list **start_b);
+void		rrotate_ab(t_list **start_a, char c);
+void		rrotate(t_list **start_a, t_list **start_b);
 
 /* sorting.c */
+void		push_elem(t_list **start_s, t_list **start_d, t_list *elem, char c);
 int			short_sort(t_list **start_a, t_list **start_b);
 void		ft_sorting(t_list **start_a, t_list **start_b);
+
+/* estim.c */
+int			estim_rotate(t_list *lst, t_list *elem);
+int			estim_rrotate(t_list *lst, t_list *elem);
+int			estimate(t_list *lst_a, t_list *lst_b, t_list *elem)
 
 #endif

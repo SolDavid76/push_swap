@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/10 19:09:59 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/13 16:04:24 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/14 14:24:36 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,4 +61,17 @@ t_list	*ft_lst_median(t_list *lst)
 	while (i++ < median)
 		lst = lst->next;
 	return (lst);
+}
+
+int	ft_lst_index(t_list *lst, t_list *elem)
+{
+	int	i;
+
+	i = 0;
+	while (lst != elem)
+	{
+		lst = lst->next;
+		i++;
+	}
+	return (i);
 }
