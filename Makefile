@@ -1,6 +1,6 @@
 SRCS_DIR	= srcs/
 
-SRC			= estim.c ft_split.c lst.c lst_aux.c main.c parsing.c utils.c move.c move_aux.c sorting.c pre_sorting.c 
+SRC			= estim.c ft_split.c lst.c lst_aux.c main.c parsing.c utils.c move.c move_aux.c sorting.c short_sorting.c 
 
 SRCS		= $(addprefix $(SRCS_DIR), $(SRC))
 

@@ -30,9 +30,9 @@ void	push_elem(t_list **start_src, t_list **start_dst, t_list *elem, char c)
 			rotate_ab(&src, c);
 	}
 	if (c == 'a')
-		push(&dst, &src, 'b');
+		push(&src, &dst, 'b');
 	if (c == 'b')
-		push(&dst, &src, 'a');
+		push(&src, &dst, 'a');
 	*start_src = src;
 	*start_dst = dst;
 }
@@ -64,9 +64,9 @@ int	short_sort_four(t_list **start_a, t_list **start_b)
 
 	a = *start_a;
 	b = *start_b;
-	push_elem(&a, &b, ft_lst_min(a), 'b');
+	push_elem(&a, &b, ft_lst_min(a), 'a');
 	short_sort_three(&a, &b);
-	push(&a, &b, 'a');
+	push(&b, &a, 'a');
 	*start_a = a;
 	*start_b = b;
 	return (1);
@@ -79,9 +79,9 @@ int	short_sort_five(t_list **start_a, t_list **start_b)
 
 	a = *start_a;
 	b = *start_b;
-	push_elem(&a, &b, ft_lst_min(a), 'b');
+	push_elem(&a, &b, ft_lst_min(a), 'a');
 	short_sort_four(&a, &b);
-	push(&a, &b, 'a');
+	push(&b, &a, 'a');
 	*start_a = a;
 	*start_b = b;
 	return (1);

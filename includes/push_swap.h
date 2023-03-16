@@ -55,7 +55,7 @@ void		swap(t_list **start_a, t_list **start_b);
 void		push(t_list **start_src, t_list **start_dst, char c);
 void		rotate_ab(t_list **start, char c);
 void		rotate(t_list **start_a, t_list **start_b);
-void		rrotate_ab(t_list **start_a, char c);
+void		rrotate_ab(t_list **start, char c);
 void		rrotate(t_list **start_a, t_list **start_b);
 
 /* sorting.c */
@@ -66,6 +66,8 @@ void		ft_sorting(t_list **start_a, t_list **start_b);
 /* estim.c */
 int			estim_rotate(t_list *lst, t_list *elem);
 int			estim_rrotate(t_list *lst, t_list *elem);
-int			estimate(t_list *lst_a, t_list *lst_b, t_list *elem)
+int			estim_move(t_list *lst, t_list *x);
+int			estim(t_list *lst, t_list *x);
+t_list		*best_elem(t_list *lst_a, t_list *lst_b);
 
 #endif
