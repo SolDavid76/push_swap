@@ -68,7 +68,7 @@ int	ft_lst_index(t_list *lst, t_list *elem)
 	int	i;
 
 	i = 0;
-	while (lst != elem)
+	while (lst && lst != elem)
 	{
 		lst = lst->next;
 		i++;

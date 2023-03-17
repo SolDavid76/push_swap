@@ -12,31 +12,6 @@
 
 #include "push_swap.h"
 
-void	push_elem(t_list **start_src, t_list **start_dst, t_list *elem, char c)
-{
-	t_list	*src;
-	t_list	*dst;
-
-	src = *start_src;
-	dst = *start_dst;
-	if (ft_lst_index(src, ft_lst_median(src)) < ft_lst_index(src, elem))
-	{
-		while (src != elem)
-			rrotate_ab(&src, c);
-	}
-	else
-	{
-		while (src != elem)
-			rotate_ab(&src, c);
-	}
-	if (c == 'a')
-		push(&src, &dst, 'b');
-	if (c == 'b')
-		push(&src, &dst, 'a');
-	*start_src = src;
-	*start_dst = dst;
-}
-
 int	short_sort_three(t_list **start_a, t_list **start_b)
 {
 	t_list	*a;
