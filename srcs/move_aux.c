@@ -28,8 +28,8 @@ void	rotate_ab(t_list **start, char c)
 
 void	rotate(t_list **start_a, t_list **start_b)
 {
-	rotate(start_a, '\0');
-	rotate(start_b, '\0');
+	rotate_ab(start_a, '\0');
+	rotate_ab(start_b, '\0');
 	write(1, "rr\n", 3);
 }
 
@@ -53,7 +53,7 @@ void	rrotate_ab(t_list **start, char c)
 
 void	rrotate(t_list **start_a, t_list **start_b)
 {
-	rrotate(start_a, '\0');
-	rrotate(start_b, '\0');
-	write(1, "rrr\n", 3);
+	rrotate_ab(start_a, '\0');
+	rrotate_ab(start_b, '\0');
+	write(1, "rrr\n", 4);
 }

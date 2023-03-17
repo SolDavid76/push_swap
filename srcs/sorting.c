@@ -19,14 +19,11 @@ void	push_elem(t_list **start_src, t_list **start_dst, t_list *elem, char c)
 
 	src = *start_src;
 	dst = *start_dst;
-	if (ft_lst_index(src, ft_lst_median(src)) < ft_lst_index(src, elem))
+	while (src != elem)	
 	{
-		while (src != elem)
+		if (ft_lst_index(src, ft_lst_median(src)) < ft_lst_index(src, elem))
 			rrotate_ab(&src, c);
-	}
-	else
-	{
-		while (src != elem)
+		else
 			rotate_ab(&src, c);
 	}
 	if (c == 'a')
@@ -53,15 +50,16 @@ void	smart_push(t_list **start_a, t_list **start_b)
 		else
 			rotate_ab(&b, 'b');
 	}
-	push_elem(&a, &b, a, 'a');
+	push_elem(&a, &b, elem, 'a');
 	*start_a = a;
 	*start_b = b;
 }
-// if (estim_rrotate(a, elem))
-// 	rrotate(&a, &b);
-// else
-// 	rrotate_ab(&b, 'b');
-//	it's may be a good idea ?
+// {
+// 	if (estim_rrotate(a, elem))
+// 		rotate(&a, &b);
+// 	else
+// 		rotate_ab(&b, 'b');
+// }
 
 void	ft_sorting(t_list **start_a, t_list **start_b)
 {
@@ -76,8 +74,15 @@ void	ft_sorting(t_list **start_a, t_list **start_b)
 	push(&a, &b, 'b');
 	while (a)
 		smart_push(&a, &b);
+	while (b != ft_lst_max(b))
+	{
+		if (ft_lst_index(b, ft_lst_median(b)) < ft_lst_index(b, ft_lst_max(b)))
+			rrotate_ab(&b, 'b');
+		else
+			rotate_ab(&b, 'b');
+	}
 	while (b)
-		push_elem(&b, &a, ft_lst_max(b), 'b');
+		push(&b, &a, 'a');
 	*start_a = a;
 	*start_b = b;
 }

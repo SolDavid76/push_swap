@@ -81,16 +81,16 @@ t_list	*parsing(char **av)
 	int		i;
 
 	i = 0;
-	while (av[i])
-	{
-		if (ft_strlen(av[i++]) > 11)
-			return (write(2, "Error\n", 6), exit(1), NULL);
-	}
-	i = 0;
 	str = NULL;
 	while (av[i])
 		str = ft_strjoin(str, av[i++]);
 	tab = ft_split(str, ' ');
+	i = 0;
+	while (tab[i])
+	{
+		if (ft_strlen(tab[i++]) > 11)
+			return (write(2, "Error\n", 6), free_tab(tab), exit(1), NULL);
+	}
 	if (!tab)
 		return (write(2, "Error\n", 6), exit(1), NULL);
 	ft_tab_check_content(tab);

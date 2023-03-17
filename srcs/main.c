@@ -17,7 +17,7 @@ void	ft_lst_print(t_list *lst, char c)
 	printf("%c = ", c);
 	while (lst)
 	{
-		printf("%li, ", lst->content);
+		printf("%li ", lst->content);
 		lst = lst->next;
 	}
 	printf("\n");
@@ -38,12 +38,12 @@ int	main(int ac, char **av)
 	// push(&lst_a, &lst_b, 'b');
 	// push(&lst_a, &lst_b, 'b');
 	// printf("%d\n", estim_move(lst_b, lst_a));
-	if (ft_lst_is_sorted(lst_a))
-		write(1, "sorted\n", 7);
-	else
-		write(1, "not sorted\n", 11);
-	ft_lst_print(lst_a, 'a');
-	ft_lst_print(lst_b, 'b');
+	// if (ft_lst_is_sorted(lst_a))
+	// 	write(1, "sorted\n", 7);
+	// else
+	// 	write(1, "not sorted\n", 11);
+	// ft_lst_print(lst_a, 'a');
+	// ft_lst_print(lst_b, 'b');
 	ft_lst_free(lst_a);
 	ft_lst_free(lst_b);
 }

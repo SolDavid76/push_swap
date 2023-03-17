@@ -54,7 +54,7 @@ void		swap_ab(t_list **start, char c);
 void		swap(t_list **start_a, t_list **start_b);
 void		push(t_list **start_src, t_list **start_dst, char c);
 void		rotate_ab(t_list **start, char c);
-void		rotate(t_list **start_a, t_list **start_b);
+void		rotate(t_list **start_a, t_list **start_b); 
 void		rrotate_ab(t_list **start, char c);
 void		rrotate(t_list **start_a, t_list **start_b);
 

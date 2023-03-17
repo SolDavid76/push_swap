@@ -31,16 +31,18 @@ int	estim_rrotate(t_list *lst, t_list *x)
 /* donne le nombre de coup pour que x soit bien push dans lst(lst_b) */
 int	estim_move(t_list *lst, t_list *x)
 {
-	int	res;
+	// t_list	*start;
+	int		res;
 
+	// start = lst;
 	if (x->content > ft_lst_max(lst)->content)
 		return (ft_lst_index(lst, ft_lst_max(lst)));
 	if (x->content < ft_lst_min(lst)->content)
 		return (ft_lst_index(lst, ft_lst_max(lst)));
-	if (ft_lstlast(lst)->content > x->content && x->content > lst->content)
+	if (ft_lstlast(lst)->content > x->content && x->content > lst->content) // <-- the bug is there
 		return (0);
 	res = 1;
-	while (lst)
+	while (lst->next)
 	{
 		if (lst->content > x->content && x->content > lst->next->content)
 			return (res);
