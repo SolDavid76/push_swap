@@ -46,20 +46,24 @@ void	smart_push(t_list **start_a, t_list **start_b)
 	while (estim_move(b, elem))
 	{
 		if (estim_move(b, elem) >= ft_lst_index(b, ft_lst_median(b)))
-			rrotate_ab(&b, 'b');
+		{
+			if (estim_rrotate(a, elem))
+				rrotate(&a, &b);
+			else
+				rrotate_ab(&b, 'b');
+		}
 		else
-			rotate_ab(&b, 'b');
+		{
+			if (estim_rotate(a, elem))
+				rotate(&a, &b);
+			else
+				rotate_ab(&b, 'b');
+		}
 	}
 	push_elem(&a, &b, elem, 'a');
 	*start_a = a;
 	*start_b = b;
 }
-// {
-// 	if (estim_rrotate(a, elem))
-// 		rotate(&a, &b);
-// 	else
-// 		rotate_ab(&b, 'b');
-// }
 
 void	ft_sorting(t_list **start_a, t_list **start_b)
 {

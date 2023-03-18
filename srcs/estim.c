@@ -39,7 +39,7 @@ int	estim_move(t_list *lst, t_list *x)
 		return (ft_lst_index(lst, ft_lst_max(lst)));
 	if (x->content < ft_lst_min(lst)->content)
 		return (ft_lst_index(lst, ft_lst_max(lst)));
-	if (ft_lstlast(lst)->content > x->content && x->content > lst->content) // <-- the bug is there
+	if (ft_lstlast(lst)->content > x->content && x->content > lst->content)
 		return (0);
 	res = 1;
 	while (lst->next)
