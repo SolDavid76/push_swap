@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/14 17:18:37 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/16 19:43:59 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/20 11:45:01 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,10 +31,8 @@ int	estim_rrotate(t_list *lst, t_list *x)
 /* donne le nombre de coup pour que x soit bien push dans lst(lst_b) */
 int	estim_move(t_list *lst, t_list *x)
 {
-	// t_list	*start;
 	int		res;
 
-	// start = lst;
 	if (x->content > ft_lst_max(lst)->content)
 		return (ft_lst_index(lst, ft_lst_max(lst)));
 	if (x->content < ft_lst_min(lst)->content)

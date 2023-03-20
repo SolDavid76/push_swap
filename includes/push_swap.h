@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 10:42:23 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/14 17:36:01 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/20 11:44:40 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,6 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
-# include <stdio.h> //plz remove before push
 
 typedef struct s_list
 {
@@ -54,7 +53,7 @@ void		swap_ab(t_list **start, char c);
 void		swap(t_list **start_a, t_list **start_b);
 void		push(t_list **start_src, t_list **start_dst, char c);
 void		rotate_ab(t_list **start, char c);
-void		rotate(t_list **start_a, t_list **start_b); 
+void		rotate(t_list **start_a, t_list **start_b);
 void		rrotate_ab(t_list **start, char c);
 void		rrotate(t_list **start_a, t_list **start_b);
 
