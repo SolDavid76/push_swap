@@ -6,7 +6,7 @@
 /*   By: djanusz <djanusz@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/08 17:35:08 by djanusz           #+#    #+#             */
-/*   Updated: 2023/03/14 16:47:01 by djanusz          ###   ########.fr       */
+/*   Updated: 2023/03/20 12:08:44 by djanusz          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,20 +50,3 @@ void	push(t_list **start_src, t_list **start_dst, char c)
 	if (c == 'b')
 		write(1, "pb\n", 3);
 }
-
-// void	push(t_list **start_src, t_list **start_dst, char c)
-// {
-// 	t_list	*src;
-// 	t_list	*dst;
-
-// 	src = *start_src;
-// 	dst = *start_dst;
-// 	if (dst)
-// 		dst->next = dst;
-// 	*start_src = src->next;
-// 	*start_dst = dst;
-// 	if (c == 'a')
-// 		write(1, "pa\n", 3);
-// 	if (c == 'b')
-// 		write(1, "pb\n", 3);
-// }
